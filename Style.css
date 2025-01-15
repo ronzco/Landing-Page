@@ -1,32 +1,423 @@
+/* Hero Section Styling */
 .hero-section {
-            background-image: url('https://via.placeholder.com/1920x700?text=Selamat+Datang+di+Toko+Online');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
-            color: white;
-        }
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    color: white; /* Warna teks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap di atas gambar */
+}
 
-        .product-card img {
-            max-height: 200px;
-            object-fit: cover;
-        }
+/* Slider untuk background gambar */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+}
 
-        .feature-icon {
-            font-size: 40px;
-            color: #1c74a6;
-        }
-        
-        .feature-text {
-            font-size: 16px;
-        }
+.slide {
+    min-width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    animation: slideAnimation 30s infinite;
+}
 
-        footer {
-            background-color: #f8f9fa;
-            padding: 30px 0;
-        }
+/* Keyframes untuk animasi */
+@keyframes slideAnimation {
+    0%, 14.28% {
+        transform: translateX(0);
+    }
+    28.56%, 42.84% {
+        transform: translateX(-100%);
+    }
+    57.12%, 71.4% {
+        transform: translateX(-200%);
+    }
+    85.68%, 100% {
+        transform: translateX(-300%);
+    }
+}
 
-        .social-icons a {
-            margin: 0 10px;
-            color: #1c74a6;
-            font-size: 20px;
-        }
+/* Styling tombol toggle */
+#theme-toggle {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    transition: transform 0.3s ease; /* Animasi untuk efek tombol */
+    color: white; /* Warna ikon default (terang) */
+}
+
+/* Efek animasi saat tombol diklik */
+#theme-toggle:hover {
+    transform: scale(1.1); /* Membesarkan tombol sedikit saat hover */
+}
+
+/* Transisi pada ikon */
+#theme-icon {
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* Animasi perubahan ikon */
+}
+
+/* Dark Mode: Tombol dan ikon */
+body.dark-mode #theme-toggle {
+    color: #FFDD00; /* Warna tombol dan ikon untuk mode gelap */
+}
+
+/* Light Mode: Tombol dan ikon */
+body:not(.dark-mode) #theme-toggle {
+    color: #333; /* Warna tombol dan ikon untuk mode terang */
+}
+
+/* Dark Mode: Ubah ikon ke matahari */
+body.dark-mode #theme-icon {
+    color: #FFDD00; /* Warna ikon untuk mode gelap */
+    transform: rotate(180deg); /* Rotasi ikon untuk efek transisi */
+}
+
+/* Light Mode: Ikon berwarna putih */
+body:not(.dark-mode) #theme-icon {
+    color: black; /* Warna ikon untuk mode terang */
+    transform: rotate(0deg); /* Reset rotasi ikon */
+}
+
+
+
+/* Styling untuk konten teks */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%; /* Pastikan konten memiliki lebar penuh */
+    padding: 0 15px; /* Memberikan sedikit ruang dari tepi */
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section .btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    text-shadow: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-section .btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #007bff;
+}
+
+/* Media Queries untuk Responsiveness */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .hero-section .btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
+/* Gambar SVG */
+img[src*="R.svg"] {
+    transition: filter 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode img[src*="R.svg"] {
+    filter: invert(1) brightness(2); /* Mengubah gambar menjadi putih */
+}
+
+/* Default Light Mode - Menjaga gambar tetap normal di mode terang */
+body:not(.dark-mode) img[src*="R.svg"] {
+    filter: none;
+}
+
+
+.feature-icon {
+    font-size: 40px;
+    color: #1c74a6;
+}
+
+.feature-text {
+    font-size: 16px;
+}
+
+footer {
+    background-color: #007cf7;
+    padding: 30px 0;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    color: #1c74a6;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.social-icons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.slider-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+}
+
+.product-card {
+    flex: 0 0 calc(33.333% - 20px); /* Tampilkan 3 item sekaligus */
+    margin: 0;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.slider-btn.left {
+    left: 10px;
+}
+
+.slider-btn.right {
+    right: 10px;
+}
+
+.btn-beli {
+    position: absolute;
+    bottom: 10px; /* Jarak dari bawah */
+    left: 50%; /* Posisi horizontal tengah */
+    transform: translateX(-50%); /* Pusatkan secara sempurna */
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 1.2rem;
+    border: none;
+    text-shadow: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 2; /* Pastikan berada di atas elemen lain */
+}
+
+/* Untuk memastikan posisi relatif elemen parent */
+.product-card {
+    position: relative; /* Pastikan parent memiliki positioning */
+}
+
+.btn-beli:hover {
+    background-color: rgb(4, 248, 0);
+    color: #ffffff;
+}
+
+/* Default Light Mode */
+body {
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transisi halus saat beralih mode */
+}
+
+.daftar {
+    padding: 50px;
+    background-color: #007bff; /* Warna biru default di light mode */
+    color: white; /* Teks tetap putih di light mode */
+}
+
+
+/* Navbar */
+.navbar-light {
+    background-color: #f8f9fa;
+}
+
+.nav-link {
+    color: black;
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;  /* Dark background for body */
+    color: white;                /* White text color */
+}
+
+body.dark-mode .daftar {
+    padding: 50px;
+    background-color: #333; /* Dark background for "daftar" section */
+    color: white; /* White text color */
+}
+
+body.dark-mode .navbar-light {
+    background-color: #343a40;  /* Dark navbar background */
+}
+
+body.dark-mode .nav-link {
+    color: white;               /* White text in navbar */
+}
+
+/* Active link style in dark mode */
+body.dark-mode .navbar-nav .nav-link.active {
+    color: #FFD700;  /* Color for active navbar link in dark mode (gold/yellow) */
+    font-weight: bold;  /* Optional: Add bold text for emphasis */
+}
+
+body.dark-mode .navbar-toggler-icon {
+    background-color: white;    /* White toggle icon */
+}
+
+body.dark-mode .btn-outline-dark {
+    color: white;
+    border-color: white;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+    background-color: #ffffff;
+    color: #343a40;
+}
+
+/* Light Mode */
+body:not(.dark-mode) .navbar-light {
+    background-color: #f8f9fa;  /* Light background for navbar */
+}
+
+body:not(.dark-mode) .nav-link {
+    color: black;               /* Black text in navbar */
+}
+
+/* Active link style in light mode */
+body:not(.dark-mode) .navbar-nav .nav-link.active {
+    color: #007bff;  /* Color for active navbar link in light mode (blue) */
+    font-weight: bold;  /* Optional: Add bold text for emphasis */
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 70vh;
+    overflow: hidden;
+    color: white; /* Warna teks */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5); /* Overlay gelap di atas gambar */
+    transition: background 0.3s ease;
+}
+
+body.dark-mode .hero-section {
+    background: rgba(0, 0, 0, 0.7); /* Dark overlay */
+}
+
+.hero-section h1, .hero-section p {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Product Cards */
+.card {
+    background-color: #ffffff;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .card {
+    background-color: #2a2a2a;
+    color: white;
+}
+
+body.dark-mode .card .btn-beli {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .card .btn-beli:hover {
+    background-color: rgba(255, 255, 255, 1);
+    color: #007bff;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f9fa;
+    color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode footer {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Social Icons */
+.social-icons a img {
+    width: 30px;
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .social-icons a img {
+    filter: invert(1);
+}
+
+body.dark-mode .social-icons a img:hover {
+    transform: scale(1.2);
+}
+
+/* Slider Button */
+body.dark-mode .slider-btn {
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .slider-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Media Queries for Responsive */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .hero-section .btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+}
