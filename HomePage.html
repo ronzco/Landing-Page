@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Online - Belanja Mudah & Cepat</title>
-    <link href="styles.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJho6E5yF2F6pA5nD2sK3tGjv5e5tSOZ33xPHD2zOzdTaa0F0yDkZjv3hsft" crossorigin="anonymous">
+    <title>RonzShop - Belanja Mudah & Cepat</title>
+    <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
 </head>
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg nav-link nav-dark navbar-nav">
     <div class="container">
-        <a class="navbar-brand" href="#">TokoOnline</a>
+        <div class="sosial-icon">
+            <img src="../asset/picture/R.svg" alt="" srcset="">
+        </div>
+        <a class="navbar-brand nav-dark navbar-nav nav-link" href="#">onzShop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,15 +36,30 @@
                     <a class="nav-link" href="#">Kontak</a>
                 </li>
             </ul>
+            <!-- Dark/Light Mode Toggle Button -->
+            <!-- Dark/Light Mode Toggle Button -->
+            <button id="theme-toggle" class="btn btn-outline-dark ms-3">
+                <i id="theme-icon" class="bi bi-moon-stars"></i> <!-- Icon moon for dark mode -->
+            </button>
+
         </div>
     </div>
 </nav>
 
 <!-- Hero Section -->
 <section class="hero-section text-center d-flex align-items-center justify-content-center">
-    <div>
+    <div class="hero-slider">
+        <div class="slide" style="background-image: url('../asset/picture/th.jpg');"></div>
+        <div class="slide" style="background-image: url('../asset/picture/hp.jpg');"></div>
+        <div class="slide" style="background-image: url('../asset/picture/pc.jpg');"></div>
+        <div class="slide" style="background-image: url('../asset/picture/perif.webp');"></div>
+        <div class="slide" style="background-image: url('../asset/picture/elektronik.webp');"></div>
+        <div class="slide" style="background-image: url('../asset/picture/pakaian.jpg');"></div>
+        <div class="slide" style="background-image: url('../asset/picture/outdor.jpg');"></div>
+    </div>
+    <div class="hero-content">
         <h1>Belanja Mudah & Cepat</h1>
-        <p>Dapatkan produk terbaik dengan harga terbaik di TokoOnline</p>
+        <p>Dapatkan produk terbaik dengan harga terbaik di Toko Kami</p>
         <a href="#produk" class="btn btn-primary btn-lg">Lihat Produk</a>
     </div>
 </section>
@@ -48,42 +67,69 @@
 <!-- Kategori Produk -->
 <section id="produk" class="container py-5">
     <h2 class="text-center mb-5">Kategori Produk</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/300x200?text=Produk+1" class="card-img-top" alt="Produk 1">
+    <div class="slider-container position-relative">
+        <div class="slider-wrapper d-flex">
+            <!-- Item 1 -->
+            <div class="card shadow-sm product-card">
+                <img src="../asset/picture/elektronik.webp" class="card-img-top" alt="Elektronik">
                 <div class="card-body">
-                    <h5 class="card-title">Produk 1</h5>
-                    <p class="card-text">Deskripsi singkat produk 1 yang sangat menarik.</p>
-                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
+                    <h5 class="card-title">Elektronik</h5>
+                    <p class="card-text">Menyediakan segala macam produk Elektronik dan peralatan Rumah Tangga yang menarik.</p>
+                    <a href="#" class="btn btn-beli">Beli Sekarang</a>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="card shadow-sm product-card">
+                <img src="../asset/picture/hp.jpg" class="card-img-top" alt="Smartphone">
+                <div class="card-body">
+                    <h5 class="card-title">Smartphone</h5>
+                    <p class="card-text">Berbagai jenis smartphone impian Anda tersedia di sini.</p>
+                    <a href="#" class="btn btn-beli">Beli Sekarang</a>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="card shadow-sm product-card">
+                <img src="../asset/picture/pakaian.jpg" class="card-img-top" alt="Pakaian">
+                <div class="card-body">
+                    <h5 class="card-title">Pakaian</h5>
+                    <p class="card-text">Pilihan pakaian menarik sesuai kebutuhan Anda.</p>
+                    <a href="#" class="btn btn-beli">Beli Sekarang</a>
+                </div>
+            </div>
+            <!-- Additional Items -->
+            <div class="card shadow-sm product-card">
+                <img src="../asset/picture/pc.jpg" class="card-img-top" alt="Komputer">
+                <div class="card-body">
+                    <h5 class="card-title">Komputer</h5>
+                    <p class="card-text">Solusi menarik untuk kebutuhan digital Anda.</p>
+                    <a href="#" class="btn btn-beli">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="card shadow-sm product-card">
+                <img src="../asset/picture/perif.webp" class="card-img-top" alt="Periferal">
+                <div class="card-body">
+                    <h5 class="card-title">Periferal</h5>
+                    <p class="card-text">Pilihan perangkat tambahan yang futuristik.</p>
+                    <a href="#" class="btn btn-beli">Beli Sekarang</a>
+                </div>
+            </div>
+            <div class="card shadow-sm product-card">
+                <img src="../asset/picture/outdor.jpg" class="card-img-top" alt="Outdoor">
+                <div class="card-body">
+                    <h5 class="card-title">Outdoor</h5>
+                    <p class="card-text">Peralatan outdoor untuk kegiatan menyenangkan.</p>
+                    <a href="#" class="btn btn-beli">Beli Sekarang</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/300x200?text=Produk+2" class="card-img-top" alt="Produk 2">
-                <div class="card-body">
-                    <h5 class="card-title">Produk 2</h5>
-                    <p class="card-text">Deskripsi singkat produk 2 yang sangat menarik.</p>
-                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm">
-                <img src="https://via.placeholder.com/300x200?text=Produk+3" class="card-img-top" alt="Produk 3">
-                <div class="card-body">
-                    <h5 class="card-title">Produk 3</h5>
-                    <p class="card-text">Deskripsi singkat produk 3 yang sangat menarik.</p>
-                    <a href="#" class="btn btn-primary">Beli Sekarang</a>
-                </div>
-            </div>
-        </div>
+        <!-- Navigasi -->
+        <button class="btn btn-primary slider-btn left">❮</button>
+        <button class="btn btn-primary slider-btn right">❯</button>
     </div>
 </section>
 
 <!-- Fitur Unggulan -->
-<section class="bg-light py-5">
+<section>
     <div class="container text-center">
         <h2 class="mb-5">Fitur Unggulan</h2>
         <div class="row">
@@ -119,7 +165,7 @@
 </section>
 
 <!-- Newsletter -->
-<section class="bg-primary text-white py-5">
+<section class="daftar">
     <div class="container text-center">
         <h3>Daftar untuk mendapatkan informasi terbaru!</h3>
         <form class="d-flex justify-content-center mt-4">
@@ -132,16 +178,22 @@
 <!-- Footer -->
 <footer class="text-center">
     <div class="container">
-        <p>&copy; 2025 TokoOnline. Semua Hak Dilindungi.</p>
+        <p>&copy; 2025 RonzShop. Semua Hak Dilindungi.</p>
         <div class="social-icons">
-            <a href="#">Facebook</a>
-            <a href="#">Instagram</a>
-            <a href="#">Twitter</a>
+            <a href="#https://web.facebook.com/RonizCo1">
+                <img src="../asset/picture/fb.svg" alt="Facebook" >
+            </a>
+            <a href="#https://www.instagram.com/incuabahaodod?igsh=MXQwa2t4dXJsN2InZA%3D%3D&utm_source=qr">
+                <img src="../asset/picture/ig.svg" alt="Instagram" >
+            </a>
+            <a href="#">
+                <img src="../asset/picture/tw.svg" alt="" >
+            </a>
         </div>
     </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb25vsZ2Yb92gL9KeBu0lK6cS1/x8f3yxzWfXFE+Bo9QDFfZ3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0p1n9O7R4R1t2zZ6jft/3wF6Pe0I5K0w5Z8u+/qNRRmZT+XA" crossorigin="anonymous"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
